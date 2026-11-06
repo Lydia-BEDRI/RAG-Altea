@@ -70,3 +70,23 @@ En relançant l’indexation avec les mêmes chunks et les mêmes identifiants, 
 ### Q13
 
 `base_vectorielle/` contient la base Chroma générée localement. Elle n’est pas envoyée sur GitHub pour éviter d’y stocker des fichiers générés et de devoir les versionner. Un collègue clone le code, installe les dépendances, récupère les documents autorisés, puis exécute les cellules du notebook jusqu’à l’indexation pour recréer la base.
+
+## Exercice 2 - Étape 5 : recherche
+
+### Q1
+
+Les trois résultats par question, classés par score décroissant :
+
+- Congé : `conges_absences.pdf` p. 2 (0,652), `conges_absences.pdf` p. 1 (0,597), `teletravail.pdf` p. 1 (0,571). La procédure pour poser un congé apparaît dans le deuxième résultat.
+- Télétravail : `teletravail.pdf` p. 1 (0,767), `conges_absences.pdf` p. 1 (0,623), `teletravail.pdf` p. 1 (0,608).
+- Mot de passe : `mot_de_passe.txt` p. 1 (0,678), `charte_informatique.pdf` p. 1 (0,637), `mot_de_passe.txt` p. 1 (0,566).
+
+Un score plus élevé indique un chunk plus proche de la question.
+
+### Q2
+
+Avec `k = 1`, on obtient le meilleur résultat seulement, avec peu de contexte. `k = 3` donne davantage d’éléments utiles. `k = 10` élargit les résultats, mais ajoute aussi des passages moins pertinents, comme `securite_emails.txt` pour une question sur le télétravail.
+
+### Q3
+
+Le filtre `RH` retourne des documents RH pertinents sur le télétravail. Le filtre `IT` retourne des documents IT, mais ils ne répondent pas à cette question. Le filtre limite la recherche, mais ne suffit pas à garantir la confidentialité : l’application doit vérifier les droits du salarié et imposer le filtre côté serveur.
