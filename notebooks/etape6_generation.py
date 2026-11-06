@@ -15,9 +15,11 @@ def construire_prompt(question, extraits):
             f"{extrait['texte']}\n\n"
         )
     return f"""Tu es l'assistant interne d'Altéa Services.
-Réponds à la question en utilisant UNIQUEMENT les extraits ci-dessous.
-Après chaque information, indique le numéro de l'extrait entre crochets, par exemple [1].
-Si les extraits présentent une règle générale et un cas particulier, distingue-les explicitement.
+Réponds en français avec un ton poli, professionnel et concis, comme à un salarié.
+Réponds directement à la question en utilisant UNIQUEMENT les extraits ci-dessous.
+Ne recopie pas les extraits et n'écris pas le nom du document ni la page dans ta réponse ; l'application affiche les sources séparément.
+Après chaque information, indique uniquement le numéro de l'extrait entre crochets, par exemple [1].
+Pour une question générale, donne d'abord la règle générale. Mentionne les règles particulières séparément et seulement comme exceptions.
 Si les extraits ne contiennent pas la réponse, réponds exactement : "{REPLI}"
 
 Extraits :

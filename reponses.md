@@ -150,3 +150,11 @@ Les réponses entièrement justes représentent 2 sur 10, soit 20 %. Les répons
 ### Q11
 
 La réponse sur le télétravail est fausse alors que `teletravail.pdf` a été retrouvé à l’étape 5 : l’erreur vient donc de la génération. J’ai ajouté au prompt une consigne demandant de distinguer la règle générale des cas particuliers. Après test, le modèle répond encore « 1 jour par semaine » et ne corrige pas l’erreur.
+
+
+### Q14
+
+- **Droits d’accès** : chaque salarié ne doit retrouver que les documents autorisés pour son rôle. Les droits doivent être appliqués côté serveur à la recherche et à l’affichage des sources.
+- **Données personnelles** : les documents peuvent contenir des informations sensibles. Il faut limiter les données indexées, définir leur durée de conservation et contrôler leur traitement par le modèle.
+- **Mise à jour des documents** : les documents doivent avoir un responsable et une date de révision. Lorsqu’un document change ou est retiré, l’index doit être mis à jour pour éviter les réponses obsolètes.
+- **Coût et hébergement du LLM** : le modèle local évite l’envoi des requêtes à un service externe, mais nécessite du matériel et de la maintenance. Un hébergement cloud peut coûter davantage et impose d’examiner où les données sont traitées.

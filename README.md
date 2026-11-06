@@ -1,27 +1,49 @@
 # RAG Altéa Services
 
-Prototype d'assistant RAG documentaire réalisé étape par étape à partir du TP.
+Prototype d’assistant documentaire pour répondre aux questions des salariés à partir du corpus fictif d’Altéa Services. Les réponses sont générées à partir des extraits retrouvés et affichent leurs sources.
 
-## Environnement
+## Installation
 
-L'environnement virtuel du projet est isolé dans `.venv/`.
+Depuis le dossier `rag_altea` :
 
 ```bash
 source .venv/bin/activate
 python -m pip install -r requirements.txt
 ```
 
-Le corpus fourni est rangé dans le dossier `docs/`.
+Installer Ollama, puis télécharger et lancer le modèle local utilisé par le projet :
 
-## Structure
+```bash
+ollama run qwen3:0.6b
+```
 
-- `docs/RH/`, `docs/IT/`, `docs/General/` : documents du corpus.
-- `notebooks/etape1_collecte.py` à `notebooks/etape7_evaluation.py` : scripts à construire au fil du TP.
-- `base_vectorielle/` : index local généré par l'étape 4, ignoré par Git.
-- `notebooks/app.py` : interface Streamlit prévue à l'étape 8.
-- `reponses.md` : réponses écrites aux questions du TP.
+Garder Ollama actif pendant l’utilisation du notebook ou de l’application. Aucune clé OpenAI n’est nécessaire.
 
+## Ordre de lancement
 
-## Lancer les étapes dans Jupyter
+1. Ouvrir `notebooks/TP_RAG_Altea.ipynb` avec l’environnement `.venv` et exécuter les cellules dans l’ordre jusqu’à l’indexation pour créer `base_vectorielle/`.
+2. Exécuter les étapes de recherche, génération et évaluation dans le même notebook.
+3. Depuis `rag_altea/notebooks`, lancer l’interface :
 
-Ouvrir `notebooks/TP_RAG_Altea.ipynb` dans l’IDE, choisir l’interpréteur Python de `.venv/`, puis exécuter les cellules dans l’ordre. Le notebook regroupe les étapes et appelle les fonctions des scripts `.py` correspondants.
+```bash
+streamlit run app.py
+```
+
+## Exemple de question
+
+`Comment poser un jour de congé ?`
+
+## Résultats de l’évaluation
+
+Sur les dix questions de `notebooks/evaluation.csv`, le document attendu est retrouvé dans 80 % des cas avec `k=1`, 90 % avec `k=3` et 100 % avec `k=5`. La notation manuelle des réponses donne 20 % de réponses entièrement justes et 80 % de réponses correctement sourcées.
+
+## Limites connues
+
+- Le petit modèle local peut mal interpréter une règle ou ne pas répondre alors que la documentation contient l’information.
+- Le prototype ne met pas en place de contrôle d’accès par salarié.
+- Une modification des documents nécessite de reconstruire ou mettre à jour l’index.
+- L’application dépend des ressources matérielles locales et du serveur Ollama.
+
+## Auteurs
+
+Lydia BEDRI.
