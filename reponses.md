@@ -19,3 +19,18 @@ On conserve le nom du fichier et le numéro de page pour citer précisément la 
 ### Q4
 
 La page 1 de `livret_accueil.pdf` est affichée avant et après nettoyage. Elle ne contient pas d’espaces répétés à corriger ; la différence visible avec `repr` est le retour à la ligne final, supprimé par `strip`. L’en-tête de diffusion restreinte et le numéro de page restent présents. Une règle supplémentaire pourrait supprimer l’en-tête exact et les lignes ne contenant qu’un numéro.
+
+
+## Exercice 1 - Étape 3 : découpage
+
+### Q5
+
+Avec une taille de 4 et un chevauchement de 1, le pas est de 3 caractères. Les morceaux commencent aux positions 0, 3 et 6 : `abcd`, `defg`, `ghij`. Le dernier caractère de chaque morceau est repris au début du suivant.
+
+### Q6
+
+| Taille (caractères) | Chevauchement | Nombre de morceaux | Longueur moyenne |
+|---:|---:|---:|---:|
+| 200 | 20 | 156 | 189,26 |
+| 500 | 50 | 69 | 422,68 |
+| 1000 | 100 | 38 | 746,45 |
