@@ -17,6 +17,7 @@ def construire_prompt(question, extraits):
     return f"""Tu es l'assistant interne d'Altéa Services.
 Réponds à la question en utilisant UNIQUEMENT les extraits ci-dessous.
 Après chaque information, indique le numéro de l'extrait entre crochets, par exemple [1].
+Si les extraits présentent une règle générale et un cas particulier, distingue-les explicitement.
 Si les extraits ne contiennent pas la réponse, réponds exactement : "{REPLI}"
 
 Extraits :

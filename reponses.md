@@ -111,3 +111,42 @@ Sans extraits, le LLM affirme que le télétravail est autorisé jusqu’à 5 jo
 ### Q7
 
 Une température de 0 réduit les variations aléatoires et rend les réponses documentaires plus cohérentes d’une exécution à l’autre. Elle ne garantit pas que la réponse soit vraie.
+
+## Exercice 2 - Étape 7 : évaluation
+
+### Q8
+
+`evaluation.csv` contient dix questions associées au document attendu. Le document VPN est `vpn.txt`, conformément au nom présent dans le corpus.
+
+### Q9
+
+Après correction du nom du document VPN, les résultats sont :
+
+| k | Questions avec le bon document retrouvé |
+|---:|---:|
+| 1 | 80 % |
+| 3 | 90 % |
+| 5 | 100 % |
+
+Les taux initiaux étaient inférieurs de 10 points, car le CSV indiquait `vpn.pdf` alors que le document retrouvé s’appelle `vpn.txt`.
+
+### Q10
+
+| Question | Réponse | Source exacte ? |
+|---|---|---|
+| Télétravail | Fausse : la réponse donne le cas des alternants comme règle générale. | Oui, mais le passage est mal interprété. |
+| Mot de passe | Partielle : la procédure est commencée, mais le texte s’arrête avant la fin. | Oui. |
+| Congé | Partielle : les étapes et la validation sont décrites, mais le portail MonEspace n’est pas mentionné. | Oui. |
+| Note de frais | Juste. | Oui, la page citée correspond à l’extrait retrouvé. |
+| Mutuelle | Fausse : le modèle utilise le repli malgré la présence du document attendu parmi les résultats. | Non, il cite la charte informatique. |
+| VPN | Fausse : le modèle ne donne pas la procédure et ne fait qu’énumérer les sources. | Oui, le fichier et la page correspondent au document attendu. |
+| Matériel informatique | Fausse : le modèle ne donne pas de réponse et n’affiche que des citations. | Oui, les citations pointent vers le document attendu. |
+| E-mail suspect | Fausse : le modèle n’indique pas la marche à suivre et termine par le repli malgré les extraits pertinents. | Oui, les extraits cités viennent du document attendu. |
+| Horaires | Fausse : le modèle utilise le repli, car le document attendu n’a pas été retrouvé. | Non. |
+| Accès au siège | Juste. | Oui. |
+
+Les réponses entièrement justes représentent 2 sur 10, soit 20 %. Les réponses correctement sourcées représentent 8 sur 10, soit 80 %.
+
+### Q11
+
+La réponse sur le télétravail est fausse alors que `teletravail.pdf` a été retrouvé à l’étape 5 : l’erreur vient donc de la génération. J’ai ajouté au prompt une consigne demandant de distinguer la règle générale des cas particuliers. Après test, le modèle répond encore « 1 jour par semaine » et ne corrige pas l’erreur.
