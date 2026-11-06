@@ -1,0 +1,35 @@
+# Environnement Python
+.venv/
+venv/
+env/
+
+# Python : cache et fichiers générés
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+
+# Variables locales et secrets (garder un éventuel .env.example)
+.env
+.env.*
+!.env.example
+
+# Base vectorielle et index générés par le TP
+base_vectorielle/
+
+# Outils de développement et couverture
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Fichiers système et éditeurs
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
