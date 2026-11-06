@@ -90,3 +90,24 @@ Avec `k = 1`, on obtient le meilleur résultat seulement, avec peu de contexte. 
 ### Q3
 
 Le filtre `RH` retourne des documents RH pertinents sur le télétravail. Le filtre `IT` retourne des documents IT, mais ils ne répondent pas à cette question. Le filtre limite la recherche, mais ne suffit pas à garantir la confidentialité : l’application doit vérifier les droits du salarié et imposer le filtre côté serveur.
+
+
+## Exercice 2 - Étape 6 : génération
+
+### Q5
+
+| Question | Réponse juste ? | Sources citées ? | Phrase de repli quand il le fallait ? |
+|---|---|---|---|
+| Comment poser un jour de congé ? | Oui, la procédure principale est donnée. | Oui, le document et la page sont corrects. | Non, la documentation contient la réponse. |
+| Combien de jours de télétravail par semaine sont autorisés ? | Non, la réponse donne le cas des alternants au lieu de la règle générale de 2 jours. | Oui, mais l’extrait est mal interprété. | Non, la documentation contient la réponse. |
+| Comment réinitialiser mon mot de passe ? | Non, le modèle utilise le repli alors que la procédure est dans le document. | Oui, mais la source pertinente n’est pas exploitée. | Non, le repli n’était pas nécessaire. |
+| Quel temps fera-t-il demain ? | Oui, le modèle indique qu’il ne trouve pas l’information. | Non, aucune source n’est citée. | Oui. |
+| Quel est le chiffre d’affaires d’Altéa Services en 2025 ? | Oui, le modèle indique qu’il ne trouve pas l’information. | Non, aucune source ne répond à la question. | Oui. |
+
+### Q6
+
+Sans extraits, le LLM affirme que le télétravail est autorisé jusqu’à 5 jours par semaine : cette information est fausse et constitue une hallucination. Le RAG retrouve le document, mais répond 1 jour, qui ne concerne que les alternants et les stagiaires. La règle générale du document est jusqu’à 2 jours par semaine pour les salariés éligibles. Le RAG réduit les hallucinations en fournissant des extraits et en demandant de s’y limiter, mais une mauvaise interprétation reste possible.
+
+### Q7
+
+Une température de 0 réduit les variations aléatoires et rend les réponses documentaires plus cohérentes d’une exécution à l’autre. Elle ne garantit pas que la réponse soit vraie.
