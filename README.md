@@ -22,10 +22,6 @@ Le corpus fourni est rangé dans le dossier `docs/`.
 - `reponses.md` : réponses écrites aux questions du TP.
 
 
-## Lancer la collecte
+## Lancer les étapes dans Jupyter
 
-Depuis la racine du projet, avec l’environnement activé :
-
-```bash
-python notebooks/etape1_collecte.py
-```
+Ouvrir `notebooks/TP_RAG_Altea.ipynb` dans l’IDE, choisir l’interpréteur Python de `.venv/`, puis exécuter les cellules dans l’ordre. Le notebook regroupe les étapes et appelle les fonctions des scripts `.py` correspondants.

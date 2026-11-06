@@ -19,8 +19,11 @@ def lire_txt(chemin):
 
 
 def collecter(dossier="docs"):
+    dossier = Path(dossier)
+    if not dossier.is_absolute():
+        dossier = Path(__file__).resolve().parent.parent / dossier
     pages = []
-    for chemin in sorted(Path(dossier).rglob("*")):
+    for chemin in sorted(dossier.rglob("*")):
         if not chemin.is_file():
             continue
         if chemin.suffix.lower() == ".pdf":
@@ -36,16 +39,6 @@ def collecter(dossier="docs"):
         pages.extend(pages_fichier)
     return pages
 
-
 if __name__ == "__main__":
     pages = collecter()
-
-    documents = sorted({(page["service"], page["source"]) for page in pages})
-    for service, source in documents:
-        nombre = sum(
-            1 for page in pages
-            if page["service"] == service and page["source"] == source
-        )
-        print(f"{service}/{source} : {nombre} page(s) lue(s)")
-
     print(len(pages), "pages lues")

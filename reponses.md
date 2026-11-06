@@ -1,6 +1,6 @@
 # Réponses aux questions du TP
 
-## Exercice 1 — Étape 1 : collecte
+## Exercice 1 - Étape 1 : collecte
 
 ### Q1
 
@@ -9,3 +9,13 @@ Le script suit le squelette du TP. `lire_pdf` utilise `PdfReader` pour extraire 
 ### Q2
 
 On conserve le nom du fichier et le numéro de page pour citer précisément la source dans une réponse et permettre au salarié de retrouver le passage. Le service permet de filtrer les résultats, par exemple pour chercher uniquement dans les documents RH, et de vérifier que la réponse vient du bon service.
+
+## Exercice 1 - Étape 2 : nettoyage
+
+### Q3
+
+`nettoyer_pages` applique `nettoyer` au texte de chaque page et écarte celles dont le texte devient vide. Sur le corpus, 23 pages/documents sont conservés sur 23 ; aucune page n’est devenue vide.
+
+### Q4
+
+La page 1 de `livret_accueil.pdf` est affichée avant et après nettoyage. Elle ne contient pas d’espaces répétés à corriger ; la différence visible avec `repr` est le retour à la ligne final, supprimé par `strip`. L’en-tête de diffusion restreinte et le numéro de page restent présents. Une règle supplémentaire pourrait supprimer l’en-tête exact et les lignes ne contenant qu’un numéro.
